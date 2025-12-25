@@ -1,0 +1,13 @@
+.venv/
+.vscode/
+__pycache__/
+*.pyc   
+.env
+.DS_Store
+.idea/
+*.log
+coverage
+html
+reports/
+nitrogen.egg-info
+plan.md

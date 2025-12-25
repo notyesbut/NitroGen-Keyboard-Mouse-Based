@@ -50,6 +50,8 @@ python scripts/play.py --process '<game_executable_name>.exe'
 
 The `--process` parameter must be the exact executable name of the game you want to play. You can find it by right-clicking on the game process in Windows Task Manager (Ctrl+Shift+Esc), and selecting `Properties`. The process name should be in the `General` tab and end with `.exe`.
 
+See `RUNNING.md` for .env usage, KM controller mode, and safety notes.
+
 <!-- TODO # Paper and Citation
 
 If you find our work useful, please consider citing us!

@@ -60,11 +60,11 @@ play = [
     "gymnasium",
     "psutil",
     "av",
-    "dxcam",
-    "pywinctl",
-    "vgamepad",
-    "pywin32",
-    "xspeedhack",
+    "dxcam; sys_platform == 'win32'",
+    "pywinctl; sys_platform == 'win32'",
+    "vgamepad; sys_platform == 'win32'",
+    "pywin32; sys_platform == 'win32'",
+    "xspeedhack; sys_platform == 'win32'",
 ]
 
 [tool.setuptools.packages.find]
