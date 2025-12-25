@@ -2,13 +2,14 @@
 
 NitroGen is a VLM-based game agent. This fork focuses on Windows stability, safe-by-default input, and keyboard+mouse (KM) control with an adapter so existing gamepad-trained models can run immediately.
 
-## What this adds
+## What this fork adds
 
 - Safe-by-default runtime (no speedhack, no process injection)
 - Keyboard+mouse controller via Win32 SendInput
 - Gamepad->KM adapter so current checkpoints run without retraining
 - Raw-input KM recording pipeline for future KM training
 - Dry-run mode, rate-limited input, and STOP-file kill switch
+- Interactive process picker with live-search
 
 ## Requirements
 
@@ -28,14 +29,12 @@ pip install -e .[serve]
 pip install -e .[play]
 ```
 
-## .env example
+## Configure
+
+Copy `.env.example` to `.env` and edit paths/values:
 
 ```bash
-NG_PT=C:\path\to\ng.pt
-NG_PORT=5555
-NG_PROCESS=Game.exe
-NG_CONTROLLER=km
-NG_KM_MOUSE_SENS=15
+copy .env.example .env
 ```
 
 ## Run
@@ -52,9 +51,13 @@ Run the agent:
 python scripts/play.py --controller km
 ```
 
-The model outputs gamepad actions. In KM mode, actions are mapped to WASD + mouse to provide immediate control. For best results, record KM demos and train a KM action head.
+If you do not know the exact process name, use:
 
-If you do not know the exact process name, use `--pick-process` to select from active windows.
+```bash
+python scripts/play.py --pick-process
+```
+
+The model outputs gamepad actions. In KM mode, actions are mapped to WASD + mouse to provide immediate control. For best results, record KM demos and train a KM action head.
 
 ## Record KM demonstrations
 
@@ -76,6 +79,6 @@ Raw input mouse capture is enabled by default; use `--no-raw-mouse` if you need 
 - Use `NG_DISABLE_INPUT=1` for dry-run (no input sent).
 - Create a STOP file to break the loop immediately (default: `PATH_REPO/STOP`).
 
-## Configuration
+## Configuration details
 
 See `RUNNING.md` for full env var and CLI options.

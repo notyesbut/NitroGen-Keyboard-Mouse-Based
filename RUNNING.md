@@ -36,6 +36,9 @@ Supported variables:
 - `NG_PROCESS`: game executable name (e.g. `Game.exe`).
 - `NG_CONTROLLER`: `gamepad` or `km`.
 - `NG_PICK_PROCESS`: set to `1` to open the process selection menu at startup.
+- `NG_PICK_PROCESS_ALL`: set to `1` to start the picker in "all processes" mode.
+- `NG_PICK_PROCESS_LIVE`: set to `0` to disable live-search and use prompt mode.
+- `NG_PICK_PROCESS_MAX_ROWS`: max rows shown in live-search list (default `30`).
 - `NG_KM_KEYS`: comma/space-separated key list for KM actions (overrides defaults).
 - `NG_KM_MOUSE_BUTTONS`: comma/space-separated mouse buttons (left,right,middle,x1,x2).
 - `NG_KM_MOUSE_SENS`: mouse sensitivity (pixels per step) for the gamepad->KM adapter.
@@ -88,4 +91,5 @@ Process picker:
 - `--pick-process`: open the process selection menu (works in `play.py` and `record_km.py`).
 You can also enter a specific PID as `pid:1234` or type part of a process name/window title to auto-match.
 Menu commands: `all` toggles all/windowed, `/text` filters list, `/clear` resets filter, `r` refreshes.
+Live mode: type to filter, `#n` selects an index, `Esc` clears, `Tab` toggles all/windowed.
 If the chosen process has no visible window, you'll be prompted to pick again.

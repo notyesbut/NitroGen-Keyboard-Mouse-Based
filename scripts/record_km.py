@@ -198,7 +198,12 @@ def main() -> int:
             print(f"Process not found: {args.process}")
         elif not process_ready:
             print(f"Process has no visible window yet: {args.process}")
-        args.process = choose_process_name(default_name=args.process)
+        args.process = choose_process_name(
+            default_name=args.process,
+            show_all_default=env_flag("NG_PICK_PROCESS_ALL", False),
+            live_search=env_flag("NG_PICK_PROCESS_LIVE", True),
+            max_rows=int(os.getenv("NG_PICK_PROCESS_MAX_ROWS", "30")),
+        )
 
     key_list = parse_key_list(args.keys, DEFAULT_KM_KEYS)
     mouse_buttons = parse_mouse_button_list(args.mouse_buttons, DEFAULT_MOUSE_BUTTONS)
